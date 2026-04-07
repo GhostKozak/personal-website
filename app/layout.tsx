@@ -3,6 +3,7 @@ import { Space_Grotesk, Manrope } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
+import Navigation from "@/components/layout/mobileNav";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space", // CSS'deki var(--font-space) ile eşleşir
@@ -35,6 +36,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
+        <Navigation />
       </body>
     </html>
   );
