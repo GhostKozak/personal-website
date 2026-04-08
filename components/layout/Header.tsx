@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { LuMenu, LuX } from "react-icons/lu";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -29,7 +29,7 @@ export default function Header() {
           aria-label="Navigation menu open/close"
           aria-expanded={open}
         >
-          {open ? <X /> : <Menu />}
+          {open ? <LuX /> : <LuMenu />}
         </button> */}
       </div>
 
