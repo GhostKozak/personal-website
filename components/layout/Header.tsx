@@ -10,27 +10,27 @@ export default function Header() {
 
   return (
     <header className="z-50 relative flex flex-wrap justify-between items-center px-0 md:px-outer">
-      <div className="flex justify-between items-center px-4 md:px-0 w-full md:w-fit">
+      <div className="flex justify-center items-center px-4 md:px-0 w-full md:w-fit">
         {/* Logo Section */}
         <Link
           href={"/"}
-          className="hover:opacity-80 font-semibold text-xl tracking-tighter transition-opacity"
+          className="hover:opacity-80 py-2 md:py-0 font-semibold text-xl tracking-wide transition-opacity"
           onClick={closeMenu}
         >
-          GhostKozak
+          Gökhan <span className="md:hidden inline-flex font-normal text-primary text-lg italic tracking-widest">'GhostKozak'</span> Tanrıverdi
         </Link>
 
-        {/* Mobile Hamburger Button */}
-        <button
+        {/* Mobile Hamburger Button !!! It has been suspended indefinitely because a new solution has been found. */}
+        {/* <button
           type="button"
           id="hamburger-menu-toggle"
-          className="md:hidden z-50 relative flex flex-col justify-center items-center bg-transparent border-none w-12 h-12 text-inherit touch-manipulation cursor-pointer"
+          className="hidden z-50 relative flex-col justify-center items-center bg-transparent border-none w-12 h-12 text-inherit touch-manipulation cursor-pointer"
           onClick={toggleMenu}
           aria-label="Navigation menu open/close"
           aria-expanded={open}
         >
           {open ? <X /> : <Menu />}
-        </button>
+        </button> */}
       </div>
 
       {/* Navigation Section */}
@@ -45,11 +45,11 @@ export default function Header() {
           }`}
       >
         <ul className="flex md:flex-row flex-col py-4 text-white/60">
-          <ListItem url="#" active onClick={closeMenu}>About</ListItem>
-          <ListItem url="#" onClick={closeMenu}>Work</ListItem>
-          <ListItem url="#" onClick={closeMenu}>Archive</ListItem>
-          <ListItem url="#" onClick={closeMenu}>Blog</ListItem>
-          <ListItem url="#" onClick={closeMenu}>Contact</ListItem>
+          <ListItem href="#about" active onClick={closeMenu}>About</ListItem>
+          <ListItem href="#work" onClick={closeMenu}>Work</ListItem>
+          <ListItem href="#archive" onClick={closeMenu}>Archive</ListItem>
+          <ListItem href="#blog" onClick={closeMenu}>Blog</ListItem>
+          <ListItem href="#contact" onClick={closeMenu}>Contact</ListItem>
         </ul>
       </nav>
     </header>
@@ -57,19 +57,19 @@ export default function Header() {
 }
 
 interface ListItemProps {
-  url: string;
+  href: string;
   children: React.ReactNode;
   classNames?: string;
   active?: boolean;
   onClick?: () => void;
 }
 
-function ListItem({url, children, classNames, active, onClick}: ListItemProps) {
+function ListItem({href, children, classNames, active, onClick}: ListItemProps) {
   return (
     <li>
       <Link 
         className={`block px-4 py-2 hover:pl-6 hover:md:pl-4 hover:md:text-primary/60 font-black md:font-semibold uppercase text-xl md:text-sm transition-all tracking-widest ${active ? 'text-primary' : ''} ${classNames || ''}`} 
-        href={url}
+        href={href}
         onClick={onClick}
       >
         {children}
