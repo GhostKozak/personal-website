@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="flex md:flex-row flex-col justify-center md:justify-between items-center gap-6 bg-surface-low mb-20 md:mb-0 px-4 md:px-outer py-6 md:py-20 text-xs uppercase tracking-widest">
+    <footer className="flex md:flex-row flex-col justify-center md:justify-between items-center gap-6 bg-surface-low mb-20 md:mb-0 px-4 md:px-outer py-6 md:py-20 text-xs xl:text-sm uppercase tracking-widest">
       <h2 className="hidden md:block font-bold text-lg">Gökhan 'GhostKozak' Tanrıverdi</h2>
       <div className="links">
         <ul className="flex flex-row gap-6 text-neutral-500">

@@ -31,7 +31,7 @@ export function BentoGridItem({ children, className }: BentoGridItemProps) {
           opacity: "calc(1 - var(--mouse-outside, 1))",
           background: `radial-gradient(
             600px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.20),
+            var(--color-glow),
             transparent 40%
           )`,
           WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
@@ -48,7 +48,7 @@ export function BentoGridItem({ children, className }: BentoGridItemProps) {
           opacity: "calc(1 - var(--mouse-outside, 1))",
           background: `radial-gradient(
             600px circle at var(--mouse-x) var(--mouse-y),
-            rgba(255, 255, 255, 0.04),
+            var(--color-glow-bg),
             transparent 40%
           )`,
         }}

@@ -1,13 +1,22 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-surface: #000;
-  --color-surface-low: #0e0e0e;
-  --color-surface-bright: #393939;
+  --color-surface: #ffffff;
+  --color-surface-low: #f8f9fa;
+  --color-surface-bright: #e9ecef;
   
+  --color-primary: oklch(60% 0.25 340);
+  --color-secondary: oklch(69% 0.16 20);
+  --color-tertiary: oklch(75% 0.18 55);
+
+  /*
   --color-primary: #ffb1c8;
   --color-secondary: #e3bdc6;
   --color-tertiary: #efbd94;
+  */
+
+  --color-glow: rgba(0,0,0, 0.40);
+  --color-glow-bg: rgba(0,0,0, 0.1);
 
   --font-heading: var(--font-space), ui-sans-serif, system-ui;
   --font-body: var(--font-manrope), ui-sans-serif, system-ui;
@@ -16,9 +25,20 @@
   --spacing-bento: 1rem; /* Spacing 3 */
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-surface: #000;
+    --color-surface-low: #0e0e0e;
+    --color-surface-bright: #393939;
+
+    --color-glow: rgba(255, 255, 255, 0.20);
+    --color-glow-bg: rgba(255, 255, 255, 0.04);
+  }
+}
+
 @layer base {
   body {
-    @apply bg-surface font-body text-white text-base antialiased;
+    @apply bg-surface font-body text-black dark:text-white text-base antialiased;
   }
   
   :is(h1,h2,h3,h4,h5,h6) {
