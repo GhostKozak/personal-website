@@ -32,7 +32,7 @@ export default function RootLayout({
     >
       <body className="flex flex-col justify-between min-h-full">
         <Header />
-        <main className="px-outer">
+        <main className="px-4 md:px-outer">
           {children}
         </main>
         <Footer />

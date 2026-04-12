@@ -25,3 +25,7 @@
     @apply font-heading;
   }
 }
+
+#about {
+  perspective: 1000px;
+}
