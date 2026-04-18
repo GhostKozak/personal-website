@@ -1,39 +1,50 @@
 @import "tailwindcss";
 
-@theme inline {
-  --color-surface: #ffffff;
-  --color-surface-low: #f8f9fa;
-  --color-surface-bright: #e9ecef;
+:root {
+  --surface: #ffffff;
+  --surface-low: #f8f9fa;
+  --surface-bright: #e9ecef;
   
-  --color-primary: oklch(60% 0.25 340);
-  --color-secondary: oklch(69% 0.16 20);
-  --color-tertiary: oklch(75% 0.18 55);
+  --primary: oklch(60% 0.25 340);
+  --secondary: oklch(69% 0.16 20);
+  --tertiary: oklch(75% 0.18 55);
 
-  /*
-  --color-primary: #ffb1c8;
-  --color-secondary: #e3bdc6;
-  --color-tertiary: #efbd94;
-  */
+  --glow: rgba(0,0,0, 0.40);
+  --glow-bg: rgba(0,0,0, 0.1);
+}
 
-  --color-glow: rgba(0,0,0, 0.40);
-  --color-glow-bg: rgba(0,0,0, 0.1);
+@media (prefers-color-scheme: dark) {
+  :root {
+    --surface: #000;
+    --surface-low: #0e0e0e;
+    --surface-bright: #393939;
+
+    --primary: #ffb1c8;
+    --secondary: #e3bdc6;
+    --tertiary: #efbd94;
+
+    --glow: rgba(255, 255, 255, 0.20);
+    --glow-bg: rgba(255, 255, 255, 0.04);
+  }
+}
+
+@theme inline {
+  --color-surface: var(--surface);
+  --color-surface-low: var(--surface-low);
+  --color-surface-bright: var(--surface-bright);
+  
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-tertiary: var(--tertiary);
+
+  --color-glow: var(--glow);
+  --color-glow-bg: var(--glow-bg);
 
   --font-heading: var(--font-space), ui-sans-serif, system-ui;
   --font-body: var(--font-manrope), ui-sans-serif, system-ui;
 
   --spacing-outer: 7rem; /* Spacing 20 */
   --spacing-bento: 1rem; /* Spacing 3 */
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-surface: #000;
-    --color-surface-low: #0e0e0e;
-    --color-surface-bright: #393939;
-
-    --color-glow: rgba(255, 255, 255, 0.20);
-    --color-glow-bg: rgba(255, 255, 255, 0.04);
-  }
 }
 
 @layer base {
