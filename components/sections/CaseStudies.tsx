@@ -2,6 +2,8 @@ import { cn } from "@/utils/ClassName"
 import Image from "next/image"
 import Link from "next/link"
 import { LuArrowRight, LuExternalLink } from "react-icons/lu"
+import ScrambleText from "../motion/ScrambleText"
+import { div } from "motion/react-client"
 
 export default function CaseStudies() {
 
@@ -37,13 +39,20 @@ export default function CaseStudies() {
   ]
 
   return (
-    <section className="my-40 lg:mt-20">
-      <span className="text-primary text-xs uppercase tracking-widest">selected works</span>
-      <h1 className="mt-4 mb-16 font-extrabold text-5xl capitalize">project showcase</h1>
+    //my-40 lg:mt-20
+    <section id="featuredProjects" className="px-4 md:px-outer">
       <div className="flex flex-col gap-40">
         {
-          TEMP_FEATURED_PROJECTS.map(project => (
-            <FeaturedCase key={project.id} {...project} />
+          TEMP_FEATURED_PROJECTS.map((project, index) => (
+            <div key={project.id} className="flex flex-col justify-center min-h-screen snap-always snap-start">
+              {index === 0 && (
+                <>
+                  <span className="text-primary text-xs uppercase tracking-widest">selected works</span>
+                  <h1 className="mt-4 mb-16 font-extrabold text-5xl capitalize">project showcase</h1>
+                </>
+              )}
+              <FeaturedCase key={project.id} {...project} />
+            </div>
           ))
         }
       </div>
@@ -79,9 +88,9 @@ function FeaturedCase({
   reverse
 } : FeaturedCaseProps) {
   return (
-    <div className="flex lg:flex-row flex-col gap-3">
+    <div className="items-center gap-8 lg:gap-12 grid grid-cols-1 lg:grid-cols-2">
       <div className={cn(reverse ? "lg:order-2" : "")}>
-        <Image src={image} alt="placeholder image" width={800} height={600} className="rounded-lg" />
+        <Image src={image} alt="placeholder image" width={800} height={600} className="rounded-lg w-full h-auto object-cover" />
       </div>
       <div className={cn("flex flex-col justify-center gap-4", reverse ? "lg:order-1" : "")}>
         <div>

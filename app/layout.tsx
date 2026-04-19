@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import MobileBottomNav from "@/components/layout/MobileBottomNav";
+import AnimatedCounter from "@/components/motion/AnimatedCounter";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space", // CSS'deki var(--font-space) ile eşleşir
@@ -28,14 +29,14 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${manrope.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${manrope.variable} h-full antialiased scroll-smooth scroll-pt-24`}
     >
       <body className="flex flex-col justify-between min-h-full">
         <Header />
-        <main className="px-4 md:px-outer">
+        <main className="z-0 bg-surface -mt-24 lg:h-screen lg:overflow-y-scroll snap-mandatory snap-y">
           {children}
+          <Footer />
         </main>
-        <Footer />
         <MobileBottomNav />
       </body>
     </html>

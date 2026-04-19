@@ -1,23 +1,27 @@
 import { cn } from "@/utils/ClassName";
+import { HTMLMotionProps, motion } from "motion/react";
 
-interface BentoGridItemProps {
+interface BentoGridItemProps extends HTMLMotionProps<"div"> {
   children?: React.ReactNode;
   className?: string;
 }
 
-export function BentoGridItem({ children, className }: BentoGridItemProps) {
+export function BentoGridItem({ children, className, ...props }: BentoGridItemProps) {
   return (
-    <div
+    <motion.div
+      {...props}
       data-bento-card
       style={
         {
+          transformStyle: "preserve-3d",
           "--mouse-x": "50%",
           "--mouse-y": "50%",
           "--mouse-outside": "1",
+          ...props.style,
         } as React.CSSProperties
       }
       className={cn(
-        "group relative flex flex-col bg-surface-low p-4 md:p-10 rounded-xl overflow-hidden",
+        "group relative flex flex-col bg-surface-low p-4 md:p-10 rounded-xl overflow-hidden backface-visible",
         className
       )}>
 
@@ -25,7 +29,7 @@ export function BentoGridItem({ children, className }: BentoGridItemProps) {
       <div className="z-10 absolute inset-0 border border-white/5 rounded-xl pointer-events-none" />
 
       {/* Layer 2 - Glow border */}
-      <div 
+      <div
         className="z-10 absolute inset-0 rounded-xl transition-opacity duration-500 pointer-events-none"
         style={{
           opacity: "calc(1 - var(--mouse-outside, 1))",
@@ -52,10 +56,10 @@ export function BentoGridItem({ children, className }: BentoGridItemProps) {
             transparent 40%
           )`,
         }}
-       />
+      />
 
       {/* Content */}
-      <div className="z-20 relative flex flex-col h-full">{children}</div>
-    </div>
+      <div className="z-20 relative flex flex-col h-full backface-hidden">{children}</div>
+    </motion.div>
   )
 }

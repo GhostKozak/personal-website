@@ -1,6 +1,13 @@
 import { useCallback, useRef, useState, useEffect } from "react";
+import { HTMLMotionProps, motion } from "motion/react";
+import { cn } from "@/utils/ClassName";
 
-export function BentoGrid({ children }: { children: React.ReactNode }) {
+interface BentoGridProps extends HTMLMotionProps<"div"> {
+  children?: React.ReactNode;
+  className?: string;
+}
+
+export function BentoGrid({ children, className, ...props }: BentoGridProps) {
   const gridRef = useRef<HTMLDivElement>(null);
   const [isDesktop, setIsDesktop] = useState(false);
 
@@ -29,13 +36,14 @@ export function BentoGrid({ children }: { children: React.ReactNode }) {
   }, [isDesktop]);
 
   return (
-    <div
+    <motion.div
       ref={gridRef}
       onMouseMove={isDesktop ? handleMouseMove : undefined}
       onMouseLeave={isDesktop ? handleMouseLeave : undefined}
-      className="gap-bento grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-2"
+      className={cn("gap-bento grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 grid-rows-2", className)}
+      {...props}
     >
       {children}
-    </div>
+    </motion.div>
   )
 }
