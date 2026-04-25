@@ -191,8 +191,8 @@ export default function Hero() {
               <h2 className="font-semibold text-2xl">Digital Fingerprint</h2>
             </div>
             <ul className="flex gap-6 mt-3 ml-auto">
-              <motion.li variants={itemVariants.linkVariants}><Link className="inline-flex items-center gap-2" href="https://github.com/GhostKozak"><LuCode size={"1.3em"} /> Github</Link></motion.li>
-              <motion.li variants={itemVariants.linkVariants}><Link className="inline-flex items-center gap-2" href="https://www.linkedin.com/in/gokhan-tanriverdi/"><LuShare2 size={"1.3em"} /> Linkedin</Link></motion.li>
+              <motion.li variants={itemVariants.linkVariants}><Link className="inline-flex items-center gap-2" href="https://github.com/GhostKozak" target="_blank" rel="noopener noreferrer"><LuCode size={"1.3em"} /> Github</Link></motion.li>
+              <motion.li variants={itemVariants.linkVariants}><Link className="inline-flex items-center gap-2" href="https://www.linkedin.com/in/gokhan-tanriverdi/" target="_blank" rel="noopener noreferrer"><LuShare2 size={"1.3em"} /> Linkedin</Link></motion.li>
               <motion.li variants={itemVariants.linkVariants}><Link className="inline-flex items-center gap-2" href="mailto:gkhntn123@gmail.com"><LuAtSign size={"1.3em"} /> Email</Link></motion.li>
             </ul>
           </BentoGridItem>
