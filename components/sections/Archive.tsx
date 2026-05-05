@@ -45,8 +45,8 @@ export default function Archive() {
   const [archiveType, setArchiveType] = useState<"card" | "list">("card");
 
   return (
-    <section id="archive" className="bg-surface-low px-4 md:px-outer">
-      <div className="flex flex-col justify-center gap-10 h-screen snap-always snap-start">
+    <section id="archive" className="bg-surface-low px-4 md:px-outer py-16">
+      <div className="flex flex-col justify-center gap-10 md:h-screen snap-always snap-start">
         <div className="flex flex-col">
           <span className="text-primary text-xs uppercase tracking-widest" onClick={() => setArchiveType((current) => (current === "card" ? "list" : "card"))}>Other Works</span>
           <h1 className="inline-flex items-center gap-6 mt-4 mb-16 font-extrabold text-5xl capitalize sm:whitespace-nowrap">archive <span className="hidden sm:inline-block bg-white/10 w-full h-0.5"></span> <Link href={"/archive"} className="text-primary text-xs uppercase">view full list</Link></h1>

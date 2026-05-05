@@ -45,6 +45,8 @@
 
   --spacing-outer: 7rem; /* Spacing 20 */
   --spacing-bento: 1rem; /* Spacing 3 */
+
+  --shadow-primary-glow: 0 0 20px -6px var(--color-primary);
 }
 
 @layer base {
